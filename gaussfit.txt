@@ -1,0 +1,9 @@
+# the first line is zeros, because template
+0 0 0 0 0 0
+# [amp1, offset1, width1, amp2, offset2, width2]
+0.9    -25 3             0.15  -25 20 # near phase = 0.5
+0.9    -25 3             0.20  -15 20
+0.9     10 3             0.20    8 20 # arces
+0.9    -25 3             0.20  -30 20
+0.9    -25 3             0.05  -30 20 # low SNR
+0.9    -25 3             0.05  -10 20
