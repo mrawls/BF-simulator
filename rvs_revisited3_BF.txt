@@ -3,12 +3,12 @@
 # Porb = 5.56648 days, BJD0 = 2454904.8038 days
 # Wavelength axis = [4485.0 - 6692.646624329645] Angstroms
 #
-# Template spectrum (line 0 of infiles):  ../../KIC_8848288/lte05500-2.50-0.0.PHOENIX-ACES-AGSS-COND-2011-HiRes_4400-7000-norm.txt
+# Template spectrum (line 0 of infiles):  lte05500-2.50-0.0.PHOENIX-ACES-AGSS-COND-2011-HiRes_4400-7000-norm.txt
 # RV of template, BCV of template (km/s): 0, 0
 #
-# List of all input spectra (infiles): ../../KIC_8848288/infiles.txt
-# Target BJD and BCV info (bjdinfile): ../../KIC_8848288/bjdfile.txt
-# Gaussian fit guesses (gausspars):    ../../KIC_8848288/gaussfit.txt
+# List of all input spectra (infiles): infiles.txt
+# Target BJD and BCV info (bjdinfile): bjdfile.txt
+# Gaussian fit guesses (gausspars):    gaussfit.txt
 #
 # BF parameters: w00 = 4485; n = 80000; stepV = 1.5
 # BF parameters: smoothstd = 1.0; m = 171
