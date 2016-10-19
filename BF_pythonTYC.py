@@ -49,18 +49,25 @@ bfoutfile:  a file that contains all the BF function data (raw RV, BF, gaussian 
 
 '''
 # (for KIC 8848288, ie TYC 3559)
-infiles =    'infiles.txt'
-bjdinfile =  'bjdfile.txt'
-gausspars =  'gaussfit.txt'
-outfile =    'rvs_revisited3_BF.txt'
-bfoutfile =  'bfoutfile3.txt'
+#infiles =    'infiles.txt'
+#bjdinfile =  'bjdfile.txt'
+#gausspars =  'gaussfit.txt'
+#outfile =    'rvs_revisited3_BF.txt'
+#bfoutfile =  'bfoutfile3.txt'
 
-isAPOGEE = False        # toggle to use near-IR stuff, or not
+# same as above, but for APOGEE
+infiles =    'infiles_apogee.txt'
+bjdinfile =  'bjdfile_apogee.txt'
+gausspars =  'gaussfit_apogee.txt'
+outfile =    'rvs_apogee.txt'
+bfoutfile =  'bfoutfile_apogee.txt'
+
+isAPOGEE = True        # toggle to use near-IR stuff, or not
 SpecPlot = True         # toggle to plot spectra before BFs, or not
 bjdoffset = 2454833.    # difference between real BJDs and 'bjdfunny' (truncated BJDs)
-amplimits = [0.8,1, 0.05,0.2] # limits for gaussian normalized amplitude [min1,max1,min2,max2]
+amplimits = [0.8,1, 0,0.2] # limits for gaussian normalized amplitude [min1,max1,min2,max2]
 threshold = 10           # margin for gaussian position (raw RV in km/s)
-widlimits = [0,7, 0,40]  # limits for gaussian width (km/s) [min1,max1,min2,max2]
+widlimits = [0,15, 0,40]  # limits for gaussian width (km/s) [min1,max1,min2,max2]
 
 period = 5.56648; BJD0 = 2454904.8038 # 8848288 orbital parameters
 rvstd = 0; bcvstd = 0 # model template RV is 0
@@ -68,9 +75,10 @@ rvstd = 0; bcvstd = 0 # model template RV is 0
 smoothstd = 1.0 #1.5     # stdev of Gaussian to smooth BFs by (~slit width in pixels)
 m = 171             # length of the BF (must be longer if RVs are far from 0)
 #w00 = 4485; n = 53000; stepV = 1.5
-w00 = 4485; n = 80000; stepV = 1.5 # testing larger, redder wavelength range
+#w00 = 4485; n = 80000; stepV = 1.5 # testing larger, redder wavelength range
+w00 = 15145; n = 15000; stepV = 1.5 # APOGEE
 
-rvneg = -64; rvpos = 24; ymin = -0.05; ymax = 1.05 # plot limits
+rvneg = -74; rvpos = 34; ymin = -0.05; ymax = 1.05 # plot limits
 ##########
 
 print('Welcome to the Broadening Function party!')
@@ -93,7 +101,7 @@ datetimelist = specdata[2]; wavelist = specdata[3]; speclist = specdata[4]
 # OPTION TO PLOT THIS (commented out for now)
 ##plt.figure(1)
 newspeclist = []
-yoffset = 1
+yoffset = 0
 if SpecPlot == True:
     plt.axis([w1[0], w1[-1], 0, nspec+3])
     plt.xlabel(r'Wavelength ({\AA})')
@@ -101,7 +109,7 @@ for i in range (0, nspec):
     newspec = np.interp(w1, wavelist[i], speclist[i])
     newspeclist.append(newspec)
     if SpecPlot == True:
-        plt.plot(w1, newspec+yoffset, label=datetimelist[i].iso[0:10], color='b')
+        plt.plot(w1, newspec+yoffset, label=datetimelist[i].iso[0:10])#, color='b')
     yoffset = yoffset + 1
 if SpecPlot == True:
     ##plt.legend()
@@ -225,7 +233,7 @@ def gaussian(x, amp, mu, sig): # i.e., (xarray, amp, rv, width)
 # PLOT THE FINAL SMOOTHED BFS + GAUSSIAN FITS IN INDIVIDUAL PANELS
 # manually adjust this multi-panel plot based on how many spectra you have
 #plt.figure(4)
-windowcols = 4                                # how many window columns there should be
+windowcols = 3 #4                                # how many window columns there should be
 #windowrows = 6
 windowrows = int([np.rint((nspec-1)/windowcols) if (np.float(nspec-1)/windowcols)%windowcols == 0 else np.rint((nspec-1)/windowcols)+1][0])
 xmin = rvneg
