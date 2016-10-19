@@ -1,0 +1,3 @@
+apVisit-r6-56366-TYC_3559-02080-1.fits
+apVisit-r6-6994-56770-172.fits
+apVisit-r6-6994-56794-165.fits

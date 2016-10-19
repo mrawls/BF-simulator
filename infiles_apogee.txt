@@ -1,0 +1,4 @@
+phoenix_jean_apogee.txt
+apVisit-r6-56366-TYC_3559-02080-1_despiked.txt
+apVisit-r6-6994-56770-172_despiked.txt
+apVisit-r6-6994-56794-165_despiked.txt

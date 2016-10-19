@@ -1,0 +1,21 @@
+# RVs calculated with BF_python.py
+#
+# Porb = 5.56648 days, BJD0 = 2454904.8038 days
+# Wavelength axis = [15145.0 - 16325.31833292621] Angstroms
+#
+# Template spectrum (line 0 of infiles):  phoenix_jean_apogee.txt
+# RV of template, BCV of template (km/s): 0, 0
+#
+# List of all input spectra (infiles): infiles_apogee.txt
+# Target BJD and BCV info (bjdinfile): bjdfile_apogee.txt
+# Gaussian fit guesses (gausspars):    gaussfit_apogee.txt
+#
+# BF parameters: w00 = 15145; n = 15000; stepV = 1.5
+# BF parameters: smoothstd = 1.0; m = 171
+# gaussfit: amplimits = [0.8, 1, 0, 0.2]; threshold = 10, widlimits = [0, 15, 0, 40]
+#
+# time, phase, adjusted_time, RV1 [km/s], error1 [km/s], RV2 [km/s], error2 [km/s]
+#
+2456366.923874900 0.665108812 1533.923874900 -23.63988 0.04062 -17.73756 0.00000
+2456770.896909200 0.237548541 1937.896909200 -23.91482 0.03976 -12.19357 0.00000
+2456794.862562400 0.542900073 1961.862562400 -23.87756 0.04005 -11.42370 0.00000
